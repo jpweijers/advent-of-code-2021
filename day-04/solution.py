@@ -24,8 +24,8 @@ def play(last):
         for player in row_cols:
             for row_col in player:
                 if all(x in lst for x in row_col):
-                    unmarked_sum = sum([
-                        x for y in player for x in y if x not in lst])
+                    unmarked_sum = sum(set([
+                        x for y in player for x in y if x not in lst]))
                     if not last:
                         return lst[~0]*unmarked_sum
                     cur = (unmarked_sum, lst[~0]) if row_cols.index(
